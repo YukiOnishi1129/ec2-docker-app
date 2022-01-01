@@ -3,18 +3,20 @@ services:
   front:
     container_name: ${FRONTEND_CONTAINER_NAME}
     build: ./client
+    tty: true
     depends_on:
       - api
     volumes:
       - ./client:/app
     working_dir: /app
     ports:
-      - ${FRONTEND_PORT}
+      - ${FRONTEND_PORT}:3000
     environment:
       - "TZ=Asia/Tokyo" # タイムゾーンを日本時刻に設定
+
   api:
     container_name: ${BACKEND_CONTAINER_NAME}
-    build: ./app
+    build: ./api
     tty: true
     depends_on:
       - db
