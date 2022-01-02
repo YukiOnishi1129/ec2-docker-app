@@ -20,8 +20,9 @@ export class Todo extends BaseEntity {
 
   @Column({
     nullable: false,
+    length: 255,
   })
-  userId!: number;
+  comment!: string;
 
   @CreateDateColumn({
     type: 'timestamp',
