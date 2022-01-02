@@ -18,9 +18,8 @@ export class Todo extends BaseEntity {
   })
   title!: string;
 
-  @Column({
+  @Column('text', {
     nullable: false,
-    length: 255,
   })
   comment!: string;
 
