@@ -7,6 +7,9 @@ async function bootstrap() {
   // APIのURLを全て「/api/v1」から始まるようにする
   app.setGlobalPrefix('api/v1');
 
+  // CORS対応
+  app.enableCors();
+
   await app.listen(3000);
 }
 bootstrap();
