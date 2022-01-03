@@ -6,19 +6,10 @@ import {
   MaxLength,
 } from 'class-validator';
 
-export class CreateTodoDto {
-  @IsString()
-  @IsNotEmpty()
-  @MinLength(2)
-  @MaxLength(25)
-  title: string;
-
-  @IsString()
-  @IsNotEmpty()
-  comment: string;
-}
-
-export class CreateTodoResponseDto {
+/**
+ * FindTodoResponseDto
+ */
+export class FindTodoResponseDto {
   @IsNumber()
   @IsNotEmpty()
   id: number;
@@ -40,4 +31,11 @@ export class CreateTodoResponseDto {
   @IsString()
   @IsNotEmpty()
   updatedAt: Date;
+}
+
+/**
+ * FindTodoListResponseDto
+ */
+export class FindTodoListResponseDto {
+  todos: FindTodoResponseDto[];
 }
