@@ -1,4 +1,5 @@
 import globalAxios from '@/config/globalAxios';
+import axiosServerSideRendering from '@/config/axiosServerSideRendering';
 import { Todo } from '@/interfaces/Todo';
 
 /**
@@ -7,7 +8,8 @@ import { Todo } from '@/interfaces/Todo';
  */
 export const fetchTodoList = async (): Promise<Todo[]> => {
   const resultTodoList: Todo[] = [];
-  const result = await globalAxios.get('/todo');
+  console.log('aaaa');
+  const result = await axiosServerSideRendering.get('/todo');
 
   if (!result?.data?.todos) return [];
 
