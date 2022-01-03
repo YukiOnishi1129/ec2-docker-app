@@ -1,14 +1,13 @@
-import globalAxios from '@/config/globalAxios';
+import axiosClientSideRendering from '@/config/axiosClientSideRendering';
 import axiosServerSideRendering from '@/config/axiosServerSideRendering';
 import { Todo } from '@/interfaces/Todo';
 
 /**
- * fetchTodoList
+ * fetchServerSideTodoListApi
  * @returns
  */
-export const fetchTodoList = async (): Promise<Todo[]> => {
+export const fetchServerSideTodoListApi = async (): Promise<Todo[]> => {
   const resultTodoList: Todo[] = [];
-  console.log('aaaa');
   const result = await axiosServerSideRendering.get('/todo');
 
   if (!result?.data?.todos) return [];

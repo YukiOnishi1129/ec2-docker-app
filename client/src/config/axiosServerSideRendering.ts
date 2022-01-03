@@ -4,7 +4,7 @@ const axiosServerSideRendering = axios.create({
   headers: {
     'Content-type': 'application/json',
   },
-  baseURL: 'http://ec2_docker_api:3000/api/v1',
+  baseURL: `${process.env.SERVER_SIDE_API_URL}`,
 });
 
 export default axiosServerSideRendering;

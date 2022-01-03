@@ -1,33 +1,27 @@
 import { NextPage, GetServerSideProps } from 'next';
 import React from 'react';
 /* apis */
-import { fetchTodoList } from '@/apis/TodoApi';
+import { fetchServerSideTodoListApi } from '@/apis/TodoApi';
 /* interface */
 import { Todo } from '@/interfaces/Todo';
 /* styles */
 import styles from '@/styles/Home.module.css';
 
-type HomePageProps = {
+/**
+ * HomePageProps
+ */
+interface HomePageProps {
   todoList: Todo[];
-};
+}
 
+/**
+ * Home
+ * @param {HomePageProps} props
+ * @returns
+ */
 const Home: NextPage<HomePageProps> = (props: HomePageProps) => {
   /* props */
   const { todoList } = props;
-  /* local */
-  // const [showTodoList, setShowTodoList] = React.useState<Todo[]>([]);
-
-  /**
-   * fetchData
-   */
-  // const fetchData = async () => {
-  //   const data = await fetchTodoList();
-  //   setShowTodoList(data);
-  // };
-
-  // React.useEffect(() => {
-  //   fetchData();
-  // }, []);
 
   return (
     <div className={styles.container}>
@@ -50,7 +44,7 @@ const Home: NextPage<HomePageProps> = (props: HomePageProps) => {
  */
 export const getServerSideProps: GetServerSideProps = async () => {
   // Todo一覧データ取得 ---------
-  const todoList = await fetchTodoList();
+  const todoList = await fetchServerSideTodoListApi();
 
   const props: HomePageProps = {
     todoList,
